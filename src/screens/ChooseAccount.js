@@ -4,7 +4,7 @@ import { Button, Caption, Headline } from "react-native-paper";
 import Account from "../components/reusables/Account";
 import { LinearGradient } from "expo-linear-gradient";
 
-function ChooseAccount(props) {
+function ChooseAccount({ navigation }) {
   const [checked, setChecked] = React.useState("");
   return (
     // <View style={styles.container}>
@@ -48,7 +48,7 @@ function ChooseAccount(props) {
         <Button
           mode="contained"
           uppercase={false}
-          onPress={() => console.log("Pressed")}
+          onPress={() => navigation.navigate("create")}
           style={{ width: "100%", paddingVertical: "2.5%" }}
         >
           Sign Up

@@ -1,8 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import BusinessOwner from "./src/screens/BusinessOwner";
-import ChooseAccount from "./src/screens/ChooseAccount";
-import CreateAccount from "./src/screens/CreateAccount";
+import { Provider as PaperProvider } from "react-native-paper";
+import { NavigationContainer } from "@react-navigation/native";
+import Overview from "./src/components/navigation/Overview";
 
 export default function App() {
   return (
@@ -10,7 +10,11 @@ export default function App() {
     //   <Text>Open up App.js to start working on your app!</Text>
     //   <StatusBar style="auto" />
     // </View>
-    <BusinessOwner />
+    <NavigationContainer>
+      <PaperProvider>
+        <Overview />
+      </PaperProvider>
+    </NavigationContainer>
   );
 }
 

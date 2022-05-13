@@ -4,14 +4,17 @@ import {
   Button,
   Caption,
   Headline,
+  Portal,
   Surface,
   TextInput,
 } from "react-native-paper";
 import { LinearGradient } from "expo-linear-gradient";
 import KeyboardAvoidingView from "react-native/Libraries/Components/Keyboard/KeyboardAvoidingView";
 
-function BusinessOwner(props) {
-  const [text, setText] = React.useState("");
+function BusinessOwner({ navigation }) {
+  const [rc, setRC] = React.useState("");
+  const [bvn, setBVN] = React.useState("");
+  const [nin, setNIN] = React.useState("");
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -41,35 +44,36 @@ function BusinessOwner(props) {
             label="RC Number"
             placeholder="Your RC Number"
             mode="outlined"
-            value={text}
-            onChangeText={(text) => setText(text)}
+            value={rc}
+            onChangeText={(text) => setRC(text)}
           />
           <View style={{ height: "5%" }} />
           <TextInput
             label="BVN"
             placeholder="Your BVN"
             mode="outlined"
-            value={text}
-            onChangeText={(text) => setText(text)}
+            value={bvn}
+            onChangeText={(text) => setBVN(text)}
           />
           <View style={{ height: "5%" }} />
           <TextInput
             label="NIN (National Identification Number)"
             placeholder="Your NIN"
             mode="outlined"
-            value={text}
-            onChangeText={(text) => setText(text)}
+            value={nin}
+            onChangeText={(text) => setNIN(text)}
           />
         </Surface>
         <View style={{ height: "5%" }} />
         <Button
           mode="contained"
           uppercase={false}
-          onPress={() => console.log("Pressed")}
+          onPress={() => navigation.navigate("dashboard")}
           style={{ width: "100%", paddingVertical: "2.5%" }}
         >
           Verify Business
         </Button>
+        <Portal></Portal>
       </LinearGradient>
     </KeyboardAvoidingView>
   );
